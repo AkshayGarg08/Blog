@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+This is Iblog 
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="owl-carousel">
+
+        {% for cat in cats %}
+
+        <div class="card item" style="margin-left: 10px;">
+          <div class="img-container">
+              <img src="/media/{{cat.image}}" class="responsive-img mt20" style="max-height:250px" alt="">
+          </div>
+
+          <div class="card-content">
+              <div class="card-title center-align">
+                  {{cat.title}}
+              </div>
+              <p class="truncate center-align">{{cat.description}}</p>
+              <div class="container mt20 center-align">
+                  <a href="/category/{{cat.url}}" class="btn  bg-primary">View</a>
+              </div>
+          </div>
+
+        </div>
+        {% endfor %}
+      
+      </div>
+
+
+
+
+
+
+
+
+{% for i in pos %}
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 mt20">
+            {{ i.content |truncatewords:50| safe }}
+                 <div class="mt20">
+                    <a href="/blog/{{i.url}}" class="btn bg-primary">Read More..</a>
+                </div>   
+        </div>
+        <div class="col s12 m4">
+                    <img src="/media/{{i.image}}" class="responsive-img mt20" alt="">
+        </div>
+    </div>
+</div>
+
+
+
+{% endfor %}
+
+
+{% endblock %}

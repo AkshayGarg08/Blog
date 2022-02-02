@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %} POSt {% endblock %}
+
+
+{% block content %}
+
+<div class="container-custom">
+    <div class="row">
+        <div class="col s12 m10">
+            <h3>{{pos.title}}</h3>
+            <p>({{pos.cat.title}})</p>
+            
+            <img src="/media/{{pos.image}}" class="responsive-img" alt="">
+
+            <p>{{pos.content | safe}}</p>
+
+        </div>
+        <div class="col s12 m2">
+            {% for cat in cats %}
+
+            <div class="card item" style="margin-left: 10px;">
+                <div class="img-container">
+                     <img src="/media/{{cat.image}}" class="responsive-img mt20" alt="">
+                </div>
+
+                <div class="card-content">
+                    <div class="card-title center-align">
+                        <b>{{cat.title}}</b>
+                     </div>
+                    <p class="truncate center-align">{{cat.description}}</p>
+                    <div class="container mt20 center-align">
+                        <a href="/category/{{cat.url}}" class="btn  bg-primary">View</a>
+                    </div>
+                 </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
