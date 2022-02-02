@@ -2,9 +2,7 @@ from django.shortcuts import render
 from .models import *
 # from django.http import HttpResponse
 
-
-
-# Create your views here.
+# function based views here.
 def home(request):
     '''load all the post from db here(10)'''
     posts = Post.objects.all()#[:11]
